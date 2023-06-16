@@ -48,7 +48,7 @@ public class CategoryRepositoryTest {
 	//@Disabled
 	@Commit	// 기본은 롤백
 	public void testCategoryRegister() {
-		IntStream.rangeClosed(1, 10).forEach(i -> {
+		IntStream.rangeClosed(1, 50).forEach(i -> {
 			Category category = new Category();
 			category.setCategoryName("Category" + i);
 			category.setDescription("Category 설명" + i);

@@ -4,20 +4,20 @@ package com.javalab.product.repository;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.test.annotation.Commit;
 
 import com.javalab.product.entity.Category;
 import com.javalab.product.entity.Product;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /**
@@ -82,7 +82,7 @@ public class ProductRepositoryTest {
         Integer categoryId = 1;
         Category category = categoryRepository.findById(categoryId).orElseThrow(); 
 
-        IntStream.rangeClosed(1, 10).forEach(i -> {
+        IntStream.rangeClosed(1, 50).forEach(i -> {
             Product product = Product.builder()
                     .productName("Product Name" + i)
                     .price(120000)
